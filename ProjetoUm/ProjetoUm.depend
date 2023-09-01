@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1612917577 source:c:\users\conta\onedrive\documentos\ifsc_programacao_estruturada\projetoum\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+

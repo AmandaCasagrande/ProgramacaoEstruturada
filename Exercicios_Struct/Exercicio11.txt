@@ -1,0 +1,71 @@
+#include <stdio.h>
+#include <ctype.h>
+
+/*
+11. Peça ao usuario para digitar seus dados pessoais (Nome, Endereço, Data de
+Nascimento, Cidade, CEP, email) usando uma estrutura para armazená-los. Em uma função
+separada, que recebe a estrutura preenchida, verifique se as informações de Data de
+Nascimento, CEP e email fazem sentido, e mostre ao usuario as informações, se estão todas
+corretas, ou mostre que alguma informação estava errada.
+*/
+
+struct Dados{
+  char nome[20], endereco[50];
+  char cidade[15], dataNascimento[8];
+  int cep;
+  char email[30];
+};
+
+struct Dados EntradaDados(){
+  struct Dados dados;
+
+  printf("Digite seus dados abaixo:\n");
+  printf("Nome: ");
+  scanf("%s", dados.nome);
+  printf("Data de Nascimento: ");
+  scanf("%s", dados.dataNascimento);
+  printf("Endereço:" );
+  scanf("%s", dados.endereco);
+  printf("Cidade: ");
+  scanf("%s", dados.cidade);
+  printf("CEP:" );
+  scanf("%d", &dados.cep);
+  printf("E-mail: ");
+  scanf("%s", dados.email);
+
+  return dados;
+};
+
+int main() {
+  //escrever lógica aqui;
+  struct Dados recebeDados;
+
+  //Validação de nome:
+  if (isalpha(recebeDados.nome)){
+    printf("Nome: %s", recebeDados.nome);
+  } else {
+    printf("Informação incorreta. Contém números ou caracteres inválidos.");
+  }
+
+  //Validação de data de nascimento:
+  if (isdigit(recebeDados.dataNascimento)){
+    printf("Data de Nascimento: %s", recebeDados.dataNascimento);
+  } else {
+    printf("Informação incorreta. Contém letras ou caracteres inválidos.");
+  }
+
+  //Validação Cidade:
+  if (isalpha(recebeDados.cidade)){
+    printf("Cidade: %s", recebeDados.cidade);
+  } else {
+    printf("Informação incorreta. Contém números ou caracteres inválidos.");
+  }
+
+  //Validação CEP:
+  if (isdigit(recebeDados.cep)){
+    printf("CEP: %d", recebeDados.cep);
+  } else {
+    printf("Informação incorreta. Contém números ou caracteres inválidos.");
+  }
+  return 0;
+}

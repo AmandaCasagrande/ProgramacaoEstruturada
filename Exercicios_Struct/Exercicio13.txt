@@ -1,0 +1,67 @@
+#include <stdio.h>
+
+/*
+13. Crie uma estrutura para armazenar livros: título (maximo 30 letras), autor (maximo 15
+letras) e ano. Faça um programa que leia um vetor desta esrutura com dados de 5 livros. Em
+uma função separada, que verifica os dados no vetor, procure um livro por título,
+perguntando ao usuario qual título deseja buscar. Mostre os dados de todos os livros
+encontrados.
+*/
+
+struct Livro{
+  char titulo[30], autor[15];
+  int ano;
+  char tituloBusca[30];
+};
+
+struct Livro RecebeLivro();
+void ImprimeLivro(struct Livro livro);
+
+int main() {
+  struct Livro livro;
+  struct Livro vetorLivro[5];
+
+  for (int i = 0; i < 5; i++) {
+    livro = RecebeLivro();
+    vetorLivro[i] = livro;
+  }
+
+  struct VerificaLivro;
+
+  if (livro.tituloBusca == livro.titulo){
+    for (int i = 0; i < 5; i++) {
+      ImprimeLivro(vetorLivro[i]);
+    }
+  }
+
+  return 0;
+}
+
+struct Livro RecebeLivro(){
+  struct Livro livro;
+
+  printf("Digite os seguintes dados sobre o livro:\n");
+  printf("Título: ");
+  scanf("%s", livro.titulo);
+  printf("Autor: ");
+  scanf("%s", livro.autor);
+  printf("Ano: ");
+  scanf("%d", &livro.ano);
+
+  return livro;
+};
+
+struct Livro VerificaLivro(){
+  struct Livro livro;
+  printf("Digite o livro que deseja buscar: ");
+  scanf("%c", livro.tituloBusca);
+
+  return livro;
+};
+
+void ImprimeLivro(struct Livro livro){
+  printf("Dados sobre o livro:\n");
+  printf("Título: %s", livro.titulo);
+  printf("Autor: %s", livro.autor);
+  printf("Ano: %d", livro.ano);
+};
